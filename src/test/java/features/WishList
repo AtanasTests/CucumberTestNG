@@ -1,0 +1,20 @@
+Feature: As a user I want to log in to my account,
+  select a product, add it to the wishlist,
+  then add it to the cart and then remove it
+  and log out of my account.
+
+  Background:
+    Given  user open the browser
+    And he navigate to login page
+
+  Scenario Outline: Positive
+    Given user will enter his email <email> and password <pasword> on the login page
+    And he go to Product page and add a product to Wishlist
+    And And he will check if the product is added to the Wishlist
+    When he add the product from WishLIst to Cart
+    And he remove the product from the Cart
+    Then he logout with confirm message <expectedLogoutText>
+    Examples:
+      | email                      | pasword  | expectedLogoutText                                                             |
+      | "alreadyregistered@abv.bg" | "123456" | "You have been logged off your account. It is now safe to leave the computer." |
+
