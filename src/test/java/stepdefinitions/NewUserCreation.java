@@ -31,7 +31,7 @@ public class NewUserCreation {
     /**
      * Applying this method will open a new page to register a new user
      */
-    @And("ne go to account creation Page")
+    @And("he go to account creation Page")
     public void neGoToAccountCreationPage() {
         Actions actions = new Actions(Browser.driver);
         actions.moveToElement(Browser.driver.findElement(By.cssSelector("[title^='My Account']"))).click().build().perform();

@@ -1,0 +1,17 @@
+Feature: The customer has confused his gift voucher and wants
+  to be replaced by a new one,
+  providing us with information about the existing and the new voucher
+
+  Background: Administrator page
+    Given admin open the browser
+
+  Scenario Outline: Removing and Creating Voucher
+    When he fulfill username <username> and fulfill password <password>
+    And he check if he is on administrator Page with text <text>
+    And he assert if the voucher exist with existing code <code> and message if failure <failure>
+    Then he delete the Voucher  FromName <FromName>
+    And he create a new voucher with Code <Code> and FromName <FromName> and FromEmail<FromEmail> for ToName <ToName> and ToEmail <ToEmail> and Amount <Amount>
+    Then he verify the New Voucher is created with Successfully <Success> and notCreated <notCreated> message
+    Examples:
+      | username | password     | text        | code    | failure                      | FromName          | Code    | FromEmail                  | ToName             | ToEmail         | Amount | Successfully                           | notCreated            |
+      | "admin"  | "parola123!" | "Dashboard" | "ForRy" | "The voucher does not exist" | "Atanas Yordanov" | "ForRy" | "alreadyregistered@abv.bg" | "Radost Yordanova" | "radiyo@abv.bg" | "300"  | "Success: You have modified vouchers!" | "Voucher not created" |

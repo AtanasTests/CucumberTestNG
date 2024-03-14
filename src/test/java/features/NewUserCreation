@@ -3,7 +3,7 @@ Feature: New User Creation
   I want to register so I can buy
   Background:
     Given the user open the browser
-    And ne go to account creation Page
+    And he go to account creation Page
 
   Scenario:Positive Creation
 
