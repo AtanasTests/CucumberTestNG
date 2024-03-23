@@ -1,0 +1,18 @@
+Feature: As a satisfied user,
+  I want to write a review for a product.
+  The administrator will then approve it.
+
+  Background:
+    Given user start the browser
+
+  Scenario Outline:
+    When user navigate to header and select iphone&pda and choose iphone review
+    And user enter <name> for name and reviewText <reviewText>
+    Then user verify successful review creation with expected message <message>
+    Given admin log and navigate to review section
+    When admin check that review with name <name> and reviewText <reviewText>
+    And admin change the status of review to Enable
+    Then user check if the review is available
+    Examples:
+      | name     | reviewText                                 | message                     |
+      | "Atanas" | "One of the best models,Perfect machine:)" | "Thank you for your review" |
